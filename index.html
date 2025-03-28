@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connor Sleeper - Entertainment Technician Portfolio</title>
+    <style>
+    body {
+      background-color: black;
+      color: #00FF00;
+      font-family: 'Courier New', Courier, monospace;
+      text-shadow: 0 0 2px #00FF00;
+      margin: 0;
+      padding: 0;
+    }
+    /* Spacer elements to allow scrolling */
+    .spacer {
+      height: 7vh;
+    }
+    /* Section container for grouping header and content */
+    .section {
+      padding: 20px;
+    }
+    /* Typewriter effect applied to all animated text elements */
+    .animated-text {
+      white-space: nowrap;
+      overflow: hidden;
+      display: block;
+      border-right: 2px solid #00FF00;
+      width: 0;
+      opacity: 1;
+      transition: width 2s steps(20, end);
+      margin-bottom: 10px;
+    }
+    /* Blinking cursor (optional, used for headers) */
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      height: 16px;
+      background-color: #00FF00;
+      animation: blink 1s infinite;
+      opacity: 0;
+      vertical-align: bottom;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    /* LinkedIn link styled to match the retro look */
+    .linkedin-link {
+      color: #00FF00;
+      text-decoration: none;
+      font-family: 'Courier New', Courier, monospace;
+      display: block;
+      margin-top: 10px;
+    }
+    .linkedin-link:hover {
+      color: #ff00ff;
+    }
+		/* Portfolio Section Styling */
+#portfolio {
+    padding: 40px 20px;
+}
+
+.portfolio-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.portfolio-item {
+    background-color: #111;
+    padding: 10px;
+    border: 1px solid #00FF00;
+    text-align: center;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    /* Start fully clipped so nothing shows */
+    clip-path: inset(100% 0 0 0);
+    /* The animation below will reveal the image line by line */
+    animation: retroReveal 2s steps(30, end) forwards;
+    /* Optionally, add a slight delay so images load sequentially */
+    /* animation-delay: 0.5s; */
+}
+
+@keyframes retroReveal {
+    from {
+        clip-path: inset(100% 0 0 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Styling for links inside portfolio items */
+.portfolio-item a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #00FF00;
+    text-decoration: none;
+}
+.portfolio-item a:hover {
+    color: #ff00ff;
+}
+		.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #111;
+  border-bottom: 2px solid #00FF00;
+  z-index: 1000;
+  padding: 10px 20px;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-list li {
+  margin-right: 20px;
+}
+
+.nav-list li a {
+  color: #00FF00;
+  text-decoration: none;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.nav-list li a:hover {
+  color: #ff00ff;
+}
+
+
+  </style>
+	
+</head>
+<body>
+	<!--Nav Bar-->
+	<nav class="navbar">
+		<div class="terminal-header">Connor Sleeper - Entertainment Technician Portfolio</div>
+  <ul class="nav-list">
+    <li><a href="#about">&gt; About Me</a></li>
+    <li><a href="#experience">&gt; Experience</a></li>
+    <li><a href="#education">&gt; Education</a></li>
+    <li><a href="#skills">&gt; Skills</a></li>
+	<li><a href="#certifications">&gt; Certifications</a></li>
+	<li><a href="#awards">&gt; Honors & Awards</a></li>
+    <li><a href="#portfolio">&gt; Portfolio</a></li>
+    <li><a href="#contact">&gt; Contact</a></li>
+  </ul>
+</nav>
+
+	
+	<!--<div class="spacer"></div>-->
+	<div class="spacer"></div>
+    
+    <div class="container">
+		
+		<!-- About Me Section -->
+		<section id="about">
+        <h1 class="animated-text">> About Me</h1>
+        <p class="animated-text">I am an experienced Entertainment Technician with a strong background in show operations, audio/visual technology, and troubleshooting various
+			<div class="animated-text">technical challenges. I have a passion for bringing performances to life through innovative technical solutions.</div></p>
+		</section>
+		<!--<div class="spacer"></div>
+		
+        <!--Experience Section-->
+	<section id="experience">
+        <h1 class="animated-text">> Experience</h1>
+        <h2 class="animated-text">Legoland Florida Resort - Entertainment Technician 3 (Feb 2023 – Mar 2025)</h2>
+        <ul>
+            <li class="animated-text">Running shows and special events, including setup and teardown.</li>
+            <li class="animated-text">Operating and troubleshooting audio and lighting equipment.</li>
+            <li class="animated-text">Calling shows and designing Q-Labs show sequences.</li>
+            <li class="animated-text">Building props and staging for events.</li>
+            <li class="animated-text">Park-wide troubleshooting: PTTs, Security Cameras, BGM, TVs, Control Panels.</li>
+        </ul>
+        
+        <h2 class="animated-text">Philmont Scout Ranch - Backcountry Program Counselor (Summers 2021 & 2022)</h2>
+        <ul>
+            <li class="animated-text">Portrayed a historical cowboy character for an immersive guest experience.</li>
+            <li class="animated-text">Handled customer service in trading posts and guided participants.</li>
+            <li class="animated-text">Performed in musical shows (Saxophone, Guitar, Vocals).</li>
+            <li class="animated-text">Guided tours and assisted in archaeological excavations.</li>
+        </ul>
+	</section>
+		<!--<div class="spacer"></div>
+		
+		<!--Eduction Section-->
+	<section id="education">
+        <h1 class="animated-text">> Education</h1>
+        <h2 class="animated-text">Hillsborough Community College</h2>
+        <p class="animated-text">College Credit Certificate in Game Design and Development (2023-May 2024)</p>
+        <h2 class="animated-text">Florida Polytechnic University</h2>
+        <p class="animated-text">Bachelor of Computer Science, Game and Simulation Development (2020 – 2026)</p>
+	</section>
+		<!--<div class="spacer"></div>
+		
+		<!--Skills Section-->
+	<section id="skills">
+        <h1 class="animated-text">> Skills</h1>
+        <ul>
+            <li class="animated-text">Technical Troubleshooting</li>
+            <li class="animated-text">Audio/Visual Equipment Management</li>
+            <li class="animated-text">Q-Labs Show Design</li>
+            <li class="animated-text">Programming: Java, JavaScript, Python, C, C#, C++, HTML & CSS, Lua</li>
+            <li class="animated-text">Adobe Suite: Photoshop, Illustrator, InDesign, Dreamweaver</li>
+            <li class="animated-text">Microsoft Office: Word, Excel, PowerPoint, Outlook</li>
+        </ul>
+	</section>
+		<!--<div class="spacer"></div>
+		
+		<!--Certifications Section-->
+	<section id="certifications">
+        <h1 class="animated-text">> Certifications</h1>
+        <ul>
+            <li class="animated-text">Microsoft: MSO - PowerPoint, Outlook, Word</li>
+            <li class="animated-text">Adobe: Photoshop, Flash, Dreamweaver, Illustrator</li>
+            <li class="animated-text">Unity - Certified Programmer</li>
+            <li class="animated-text">QSC: Q-SYS Control 101, Quantum Level 1, Q-SYS Level 1</li>
+            <li class="animated-text">Audinate - Dante Level 1, 2, & 3</li>
+        </ul>
+		<div class="portfolio-gallery">
+    <div class="portfolio-item">
+      <img class="retro-img" src="https://github.com/connorsleeper/connorsleeper.github.io/blob/main/Icons/CertiportLogo-White2.png" alt="Certiport Icon">
+      <p>> Certiport</p>
+      <a href="https://github.com/connorsleeper/connorsleeper.github.io/tree/main/Certifications/CertiPort" target="_blank">Certiport Certifications</a>
+    </div>
+    <div class="portfolio-item">
+      <img class="retro-img" src="https://github.com/connorsleeper/connorsleeper.github.io/blob/main/Icons/codeAcademyLogo.png" alt="CodeAcademy Icon">
+      <p>> CodeAcademy</p>
+      <a href="https://github.com/connorsleeper/connorsleeper.github.io/tree/main/Certifications/CodeAcademy" target="_blank">CodeAcademy Certifications</a>
+    </div>
+    
+  </div>
+	</section>
+		<!--<div class="spacer"></div>
+		
+		<!--Awards Section-->
+	<section id="awards">
+        <h1 class="animated-text">> Honors & Awards</h1>
+        <ul>
+            <li class="animated-text">Eagle Scout (2018)</li>
+            <li class="animated-text">National Honor Society (2016-2020)</li>
+            <li class="animated-text">Order of the Arrow - Brotherhood (2019)</li>
+        </ul>
+	</section>
+	
+	<!--Portfolio Section-->
+	<section id="portfolio">
+  <h2 class="animated-text">> Portfolio</h2>
+  <div class="portfolio-gallery">
+    <div class="portfolio-item">
+      <img class="retro-img" src="images/project1.jpg" alt="Project 1">
+      <p>> Q-SYS Show Control Programming</p>
+      <a href="files/qsys_project1.zip" download>Download Q-SYS Project</a>
+    </div>
+    <div class="portfolio-item">
+      <img class="retro-img" src="images/project2.jpg" alt="Project 2">
+      <p>> Lighting Design for Live Show</p>
+      <a href="files/lighting_cue_list.pdf" target="_blank">Download Cue List</a>
+    </div>
+    <div class="portfolio-item">
+      <img class="retro-img" src="images/project3.jpg" alt="Project 3">
+      <p>> Custom Stage Setup for Event</p>
+      <a href="files/stage_diagram.pdf" target="_blank" rel="noopener noreferrer" download>Download Stage Diagram</a>
+    </div>
+  </div>
+</section>
+
+	
+        <!--Contact Section-->
+			<section id="contact">
+        <h1 class="animated-text">> Contact</h1>
+				<p class="animated-text">
+				<a href="mailto:c.sleeper34@gmail.com" target="_blank" rel="noopener noreferrer" class="linkedin-link">Email: c.sleeper34@gmail.com</a></p>
+        <p class="animated-text"><a href="https://www.linkedin.com/in/connor-sleeper-2725651BA" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn: https://www.linkedin.com/in/connor-sleeper-2725651BA</a></p>
+    </div>
+	</section>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const animatedElements = document.querySelectorAll(".animated-text");
+      
+      // For each animated element, measure its natural width and store it
+      animatedElements.forEach(elem => {
+          let fullWidth = elem.scrollWidth;
+          console.log("Measured full width:", fullWidth, "for element:", elem);
+          elem.dataset.fullWidth = fullWidth + "px";
+          elem.style.width = "0px";  // Ensure starting width is 0
+      });
+      
+      // Set up IntersectionObserver to trigger typewriter effect when elements are visible
+      const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+              const elem = entry.target;
+              // Check for an associated blinking cursor (immediate sibling with "cursor" class)
+              const cursor = (elem.nextElementSibling && elem.nextElementSibling.classList.contains("cursor"))
+                             ? elem.nextElementSibling
+                             : null;
+              console.log("Element:", elem, "isIntersecting:", entry.isIntersecting);
+              if (entry.isIntersecting) {
+                  elem.style.width = elem.dataset.fullWidth;
+                  if (cursor) { cursor.style.opacity = "1"; }
+              } else {
+                  elem.style.width = "0px";
+                  if (cursor) { cursor.style.opacity = "0"; }
+              }
+          });
+      }, { threshold: 0.5 });
+      
+      animatedElements.forEach(elem => observer.observe(elem));
+    });
+document.addEventListener("DOMContentLoaded", function() {
+  const images = document.querySelectorAll(".retro-img");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Restart the animation by forcing reflow
+        entry.target.style.animation = "none";
+        void entry.target.offsetWidth; // trigger reflow
+        entry.target.style.animation = "retroReveal 2s steps(30, end) forwards";
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  images.forEach(img => observer.observe(img));
+});
+  </script>
+</body>
+</html>
