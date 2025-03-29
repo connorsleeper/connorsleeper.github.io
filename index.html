@@ -144,31 +144,7 @@ html {
   scrollbar-color: #00ff00 #000;
 }
 
-/* WebKit browsers */
-::-webkit-scrollbar {
-  width: 8px;
-}
 
-::-webkit-scrollbar-track {
-  background: #000;
-  border: 1px solid #00ff00;
-  /* Add an inset drop shadow for a subtle depth effect */
-  box-shadow: inset 0 0 5px rgba(0, 255, 0, 0.5);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #00ff00;
-  border: 1px solid #000;
-  /* Apply a drop shadow similar to your text */
-  box-shadow: 0 0 5px #00ff00;
-  /* Use a stepped transition to simulate a choppy update (low frame rate feel) */
-  transition: background-color 0.3s steps(10, end), transform 0.3s steps(10, end);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #00cc00;
-  transform: scale(1.05);
-}
 /* CRT scan line effect over the entire page */
 body {
   position: relative;
@@ -267,6 +243,30 @@ body::after {
       box-shadow: 0 0 5px #00ff00;
       z-index: 9999;
     }
+/* Width of the scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track (background) of the scrollbar */
+::-webkit-scrollbar-track {
+    background: #111; /* Dark background to match the CRT theme */
+}
+
+/* Handle (draggable part) of the scrollbar */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 255, 0, 0.8),
+        rgba(0, 255, 0, 0.2)
+    ); /* Green gradient for a scanline effect */
+    border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 0, 1); /* Brighter green on hover */
+}
 
     </style>
 	
