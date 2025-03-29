@@ -138,7 +138,91 @@
 }
 
 }
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #00ff00 #000;
+}
 
+/* WebKit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+  border: 1px solid #00ff00;
+  /* Add an inset drop shadow for a subtle depth effect */
+  box-shadow: inset 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #00ff00;
+  border: 1px solid #000;
+  /* Apply a drop shadow similar to your text */
+  box-shadow: 0 0 5px #00ff00;
+  /* Use a stepped transition to simulate a choppy update (low frame rate feel) */
+  transition: background-color 0.3s steps(10, end), transform 0.3s steps(10, end);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #00cc00;
+  transform: scale(1.05);
+}
+/* CRT scan line effect over the entire page */
+body {
+  position: relative;
+  /* Ensure background and text styles remain as desired */
+}
+
+/* Create the overlay using a pseudo-element */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allow clicks through the overlay */
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    rgba(0, 0, 0, 0.1) 2px
+  );
+  animation: scanlines 1s steps(10, end) infinite;
+}
+
+/* Keyframes for a subtle moving effect */
+@keyframes scanlines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+/* Hide the native cursor */
+    body {
+      cursor: none;
+      background-color: #000;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    /* Custom cursor element */
+    .custom-cursor {
+      position: fixed;
+      width: 16px;
+      height: 16px;
+      background-color: #00ff00;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 5px #00ff00;
+      z-index: 9999;
+    }
 
     </style>
 	
@@ -297,7 +381,9 @@
         <p class="animated-text"><a href="https://www.linkedin.com/in/connor-sleeper-2725651BA" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn: https://www.linkedin.com/in/connor-sleeper-2725651BA</a></p>
     </div>
 	</section>
-
+<!-- Custom cursor element -->
+  <div class="custom-cursor"></div>
+	
     <script>
     document.addEventListener("DOMContentLoaded", function() {
       const animatedElements = document.querySelectorAll(".animated-text");
@@ -346,6 +432,31 @@ document.addEventListener("DOMContentLoaded", function() {
   
   images.forEach(img => observer.observe(img));
 });
+		// Select the custom cursor element.
+    const cursor = document.querySelector('.custom-cursor');
+    
+    // Variables to store target and current cursor positions.
+    let targetX = window.innerWidth / 2, targetY = window.innerHeight / 2;
+    let currentX = targetX, currentY = targetY;
+    
+    // Update target coordinates on mousemove.
+    document.addEventListener('mousemove', function(e) {
+      targetX = e.clientX;
+      targetY = e.clientY;
+    });
+    
+    // Update the cursor position at ~30fps using setInterval.
+    setInterval(() => {
+      // Calculate the difference between the current and target positions.
+      // Use a step factor to produce a choppy, stepped motion.
+      const step = 0.5; // Adjust this factor for more or less choppiness.
+      currentX += (targetX - currentX) * step;
+      currentY += (targetY - currentY) * step;
+      
+      // Optionally round the values to emphasize the stepped effect.
+      cursor.style.left = Math.round(currentX) + 'px';
+      cursor.style.top = Math.round(currentY) + 'px';
+    }, 33); // ~33ms per update is roughly 30fps.
   </script>
 </body>
 </html>
