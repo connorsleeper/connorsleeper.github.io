@@ -203,23 +203,27 @@ body::after {
     background-position: 0 100%;
   }
 }
-/* Hide the native cursor */
+/* Hide all native cursors across elements */
+    * {
+      cursor: none !important;
+    }
     body {
-      cursor: none;
+      margin: 0;
+      padding: 0;
       background-color: #000;
       color: #00ff00;
       font-family: 'Courier New', Courier, monospace;
     }
-
-    /* Custom cursor element */
+    /* Custom cursor styled as a traditional arrow */
     .custom-cursor {
       position: fixed;
-      width: 16px;
-      height: 16px;
+      width: 24px;
+      height: 24px;
       background-color: #00ff00;
-      border-radius: 50%;
+      /* Create a traditional arrow shape using clip-path */
+      clip-path: polygon(0% 0%, 100% 50%, 60% 55%, 70% 100%, 40% 70%, 10% 90%);
       pointer-events: none;
-      transform: translate(-50%, -50%);
+      transform: translate(-2px, -2px); /* Adjust offset to position the tip correctly */
       box-shadow: 0 0 5px #00ff00;
       z-index: 9999;
     }
@@ -432,31 +436,25 @@ document.addEventListener("DOMContentLoaded", function() {
   
   images.forEach(img => observer.observe(img));
 });
-		// Select the custom cursor element.
-    const cursor = document.querySelector('.custom-cursor');
-    
-    // Variables to store target and current cursor positions.
+		const cursor = document.querySelector('.custom-cursor');
     let targetX = window.innerWidth / 2, targetY = window.innerHeight / 2;
     let currentX = targetX, currentY = targetY;
     
-    // Update target coordinates on mousemove.
+    // Update target on mousemove
     document.addEventListener('mousemove', function(e) {
       targetX = e.clientX;
       targetY = e.clientY;
     });
     
-    // Update the cursor position at ~30fps using setInterval.
+    // Update cursor position at ~30fps with a stepped, choppy feel.
     setInterval(() => {
-      // Calculate the difference between the current and target positions.
-      // Use a step factor to produce a choppy, stepped motion.
-      const step = 0.5; // Adjust this factor for more or less choppiness.
+      const step = 0.5; // Adjust to increase/decrease choppiness
       currentX += (targetX - currentX) * step;
       currentY += (targetY - currentY) * step;
-      
-      // Optionally round the values to emphasize the stepped effect.
+      // Round for a more stepped effect
       cursor.style.left = Math.round(currentX) + 'px';
       cursor.style.top = Math.round(currentY) + 'px';
-    }, 33); // ~33ms per update is roughly 30fps.
+    }, 33);
   </script>
 </body>
 </html>
