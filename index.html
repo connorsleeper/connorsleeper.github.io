@@ -71,6 +71,7 @@
 .portfolio-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+	grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
@@ -83,8 +84,8 @@
 }
 
 .portfolio-item img {
-    width: auto;
-    height: 100%;
+    width: 100%;
+    height: auto;
     /* Start fully clipped so nothing shows */
     clip-path: inset(100% 0 0 0);
     /* The animation below will reveal the image line by line */
