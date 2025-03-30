@@ -83,8 +83,6 @@
 }
 
 .portfolio-item img {
-    display: grid;
-	grid-auto-columns: repeat(auto-fit, minmax(25px, 1fr));
 	width: 100%;
     height: auto;
     /* Start fully clipped so nothing shows */
@@ -94,7 +92,19 @@
     /* Optionally, add a slight delay so images load sequentially */
     /* animation-delay: 0.5s; */
 }
+.inner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
+  gap: 5px;
+  margin-bottom: 10px;
+}
 
+.inner-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border: 1px solid #00ff00;
+}
 @keyframes retroReveal {
     from {
         clip-path: inset(100% 0 0 0);
@@ -394,9 +404,11 @@ body::after {
       <a href="https://github.com/connorsleeper/connorsleeper.github.io/tree/main/QSYS%20Designs" target="_blank">/main/QSYS%20Designs</a>
     </div>
     <div class="portfolio-item">
+		<div class="inner-grid">
       <img class="retro-img" src="QSYS Designs/Screenshots/UCI/NU_UCI.png" alt="Ninjas Unite UCI">
 		<img class="retro-img" src="QSYS Designs/Screenshots/UCI/Opening_Moment_EQ_Page.png" alt="Opening Moment EQ Page">
 		<img class="retro-img" src="QSYS Designs/Screenshots/UCI/WADP_UCI.png" alt="Whip Around Dance Party UCI">
+		</div>
       <p>> Q-SYS UCI Screen Shots</p>
       <a href="https://github.com/connorsleeper/connorsleeper.github.io/tree/main/QSYS%20Designs/Screenshots/UCI" target="_blank">/main/QSYS%20Designs/Screenshots/UCI</a>
     </div>
