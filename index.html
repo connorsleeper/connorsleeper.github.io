@@ -71,7 +71,7 @@
 .portfolio-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
-    gap: 10px;
+    gap: 5px;
     margin-top: 20px;
 }
 
@@ -85,8 +85,9 @@
 .portfolio-item img {
     width: 100%;
     border-bottom: 2px solid #00FF00;
+    /* Initial clip-path */
     clip-path: inset(100% 0 0 0);
-    /* Define the animation properties separately */
+    -webkit-clip-path: inset(100% 0 0 0);
     animation-name: retroReveal;
     animation-duration: 2s;
     animation-timing-function: steps(30, end);
@@ -110,9 +111,11 @@
 @keyframes retroReveal {
     from {
         clip-path: inset(100% 0 0 0);
+        -webkit-clip-path: inset(100% 0 0 0);
     }
     to {
         clip-path: inset(0 0 0 0);
+        -webkit-clip-path: inset(0 0 0 0);
     }
 }
 
