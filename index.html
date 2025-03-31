@@ -29,27 +29,28 @@
       padding: 20px;
     }
     /* Typewriter effect applied to all animated text elements */
-    .animated-text {
-      overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid #00FF00; /* The typewriter cursor */
-  white-space: normal; /* Allows the text to wrap */
-  margin: 0 auto; /* Centers the text */
-  letter-spacing: 0.15em; /* Adjust as needed */
-  max-width: 100%; /* Ensures the text does not exceed the container's width */
-  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-  word-break: break-word; /* Ensures long words break and wrap to the next line */
+    .typewriter {
+      font-family: 'Web437 ACM VGA 9x16', monospace;
+      white-space: pre-wrap; /* Allows text to wrap */
+      overflow: hidden;
+      border-right: 2px solid #00FF00;
+      width: 100%;
+      max-width: 600px; /* Adjust based on your layout */
+      margin: 0 auto;
+      padding: 10px;
+      line-height: 1.5;
     }
-    /* The typing effect */
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: #00FF00; }
-}
+    .line {
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 0;
+      animation: typing 2s steps(40, end) forwards;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
     /* LinkedIn link styled to match the retro look */
     .linkedin-link {
       color: #00FF00;
@@ -310,70 +311,109 @@ body::after {
 		
 		<!-- About Me Section -->
 		<section id="about">
-        <h1 class="animated-text">> About Me</h1>
+			
+        <h1 class="typewriter">> About Me</h1>
+			
+			<div class="typewriter">
         <p class="animated-text" >I am an experienced Entertainment Technician with a strong background in show operations, audio/visual technology, and troubleshooting various technical challenges. I have a passion for bringing performances to life through innovative technical solutions.</p>
+			</div>
 		</section>
 		<!--<div class="spacer"></div>
 		
         <!--Experience Section-->
 	<section id="experience">
+		<div class="typewriter">
         <h1 class="animated-text">> Experience</h1>
+		</div><div class="typewriter">
         <h2 class="animated-text">Legoland Florida Resort - Entertainment Technician 3 (Feb 2023 – Mar 2025)</h2>
+		</div>
         <ul>
-            <li class="animated-text">Running shows and special events, including setup and teardown.</li>
-            <li class="animated-text">Operating and troubleshooting audio and lighting equipment.</li>
-            <li class="animated-text">Calling shows and designing Q-Labs show sequences.</li>
-            <li class="animated-text">Building props and staging for events.</li>
-            <li class="animated-text">Park-wide troubleshooting: PTTs, Security Cameras, BGM, TVs, Control Panels.</li>
+			<div class="typewriter">
+            <li class="animated-text">Running shows and special events, including setup and teardown.</li></div>
+			<div class="typewriter">
+            <li class="animated-text">Operating and troubleshooting audio and lighting equipment.</li></div>
+			<div class="typewriter">
+            <li class="animated-text">Calling shows and designing Q-Labs show sequences.</li></div>
+			<div class="typewriter">
+				<li class="animated-text">Building props and staging for events.</li></div>
+			<div class="typewriter">
+            <li class="animated-text">Park-wide troubleshooting: PTTs, Security Cameras, BGM, TVs, Control Panels.</li></div>
         </ul>
         
-        <h2 class="animated-text">Philmont Scout Ranch - Backcountry Program Counselor (Summers 2021 & 2022)</h2>
+		<div class="typewriter">
+        <h2 class="animated-text">Philmont Scout Ranch - Backcountry Program Counselor (Summers 2021 & 2022)</h2></div>
         <ul>
-            <li class="animated-text">Portrayed a historical cowboy character for an immersive guest experience.</li>
-            <li class="animated-text">Handled customer service in trading posts and guided participants.</li>
-            <li class="animated-text">Performed in musical shows (Saxophone, Guitar, Vocals).</li>
-            <li class="animated-text">Guided tours and assisted in archaeological excavations.</li>
+			<div class="typewriter">
+            <li class="animated-text">Portrayed a historical cowboy character for an immersive guest experience.</li></div>
+			<div class="typewriter">
+            <li class="animated-text">Handled customer service in trading posts and guided participants.</li></div>
+			<div class="typewriter">
+            <li class="animated-text">Performed in musical shows (Saxophone, Guitar, Vocals).</li></div>
+			<div class="typewriter">
+            <li class="animated-text">Guided tours and assisted in archaeological excavations.</li></div>
         </ul>
 	</section>
 		<!--<div class="spacer"></div>
 		
 		<!--Eduction Section-->
 	<section id="education">
-        <h1 class="animated-text">> Education</h1>
-        <h2 class="animated-text">Hillsborough Community College</h2>
-        <p class="animated-text">College Credit Certificate in Game Design and Development (2023-May 2024)</p>
-        <h2 class="animated-text">Florida Polytechnic University</h2>
-        <p class="animated-text">Bachelor of Computer Science, Game and Simulation Development (2020 – Present)</p>
-		<h2 class="animated-text">Polk State College</h2>
-		<p class="animated-text">Associate of Arts, Digital Media (2025 - Present)</p>
-		<h2 class="animated-text">Middleton Highschool</h2>
-		<p class="animated-text">Highschool Diploma, Game & Simulation Design (2016 - 2020)</p>
+		<div class="typewriter">
+			<h1 class="animated-text">> Education</h1></div>
+		<div class="typewriter">
+			<h2 class="animated-text">Hillsborough Community College</h2></div>
+		<div class="typewriter">
+        <p class="animated-text">College Credit Certificate in Game Design and Development (2023-May 2024)</p></div>
+		<div class="typewriter">
+			<h2 class="animated-text">Florida Polytechnic University</h2></div>
+		<div class="typewriter">
+        <p class="animated-text">Bachelor of Computer Science, Game and Simulation Development (2020 – Present)</p></div>
+		<div class="typewriter">
+			<h2 class="animated-text">Polk State College</h2></div>
+		<div class="typewriter">
+			<p class="animated-text">Associate of Arts, Digital Media (2025 - Present)</p></div>
+		<div class="typewriter">
+			<h2 class="animated-text">Middleton Highschool</h2></div>
+		<div class="typewriter">
+			<p class="animated-text">Highschool Diploma, Game & Simulation Design (2016 - 2020)</p></div>
 	</section>
 		<!--<div class="spacer"></div>
 		
 		<!--Skills Section-->
 	<section id="skills">
-        <h1 class="animated-text">> Skills</h1>
+		<div class="typewriter">
+			<h1 class="animated-text">> Skills</h1></div>
         <ul>
-            <li class="animated-text">Technical Troubleshooting</li>
-            <li class="animated-text">Audio/Visual Equipment Management & Maintenance</li>
-            <li class="animated-text">Q-Labs Show Design</li>
-            <li class="animated-text">Programming: Java, JavaScript, Python, C, C#, C++, HTML & CSS, Lua</li>
-            <li class="animated-text">Adobe Suite: Photoshop, Illustrator, InDesign, Dreamweaver</li>
-            <li class="animated-text">Microsoft Office: Word, Excel, PowerPoint, Outlook</li>
+			<div class="typewriter">
+				<li class="animated-text">Technical Troubleshooting</li></div>
+			<div class="typewriter">
+				<li class="animated-text">Audio/Visual Equipment Management & Maintenance</li></div>
+			<div class="typewriter">
+				<li class="animated-text">Q-Labs Show Design</li></div>
+			<div class="typewriter">
+            <li class="animated-text">Programming: Java, JavaScript, Python, C, C#, C++, HTML & CSS, Lua</li></div>
+			<div class="typewriter">
+            <li class="animated-text">Adobe Suite: Photoshop, Illustrator, InDesign, Dreamweaver</li></div>
+			<div class="typewriter">
+				<li class="animated-text">Microsoft Office: Word, Excel, PowerPoint, Outlook</li></div>
         </ul>
 	</section>
 		<!--<div class="spacer"></div>
 		
 		<!--Certifications Section-->
 	<section id="certifications">
-        <h1 class="animated-text">> Certifications</h1>
+		<div class="typewriter">
+			<h1 class="animated-text">> Certifications</h1></div>
         <ul>
-            <li class="animated-text">Microsoft: MSO - PowerPoint, Outlook, Word</li>
-            <li class="animated-text">Adobe: Photoshop, Flash, Dreamweaver, Illustrator</li>
-            <li class="animated-text">Unity - Certified Programmer</li>
-            <li class="animated-text">QSC: Q-SYS Control 101, Quantum Level 1, Q-SYS Level 0 & 1</li>
-            <li class="animated-text">Audinate - Dante Level 1, 2, & 3</li>
+			<div class="typewriter">
+				<li class="animated-text">Microsoft: MSO - PowerPoint, Outlook, Word</li></div>
+			<div class="typewriter">
+				<li class="animated-text">Adobe: Photoshop, Flash, Dreamweaver, Illustrator</li></div>
+			<div class="typewriter">
+				<li class="animated-text">Unity - Certified Programmer</li></div>
+			<div class="typewriter">
+            <li class="animated-text">QSC: Q-SYS Control 101, Quantum Level 1, Q-SYS Level 0 & 1</li></div>
+			<div class="typewriter">
+				<li class="animated-text">Audinate - Dante Level 1, 2, & 3</li></div>
         </ul>
 		<div class="portfolio-gallery">
     <div class="portfolio-item">
@@ -481,22 +521,40 @@ body::after {
 	
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-  const elements = document.querySelectorAll(".typewriter p");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.animationPlayState = 'running';
-      } else {
-        entry.target.style.animationPlayState = 'paused';
-      }
-    });
-  }, { threshold: 0.5 });
+      const typewriter = document.getElementById('typewriter');
+      const text = typewriter.innerText;
+      typewriter.innerHTML = ''; // Clear original text
 
-  elements.forEach(elem => {
-    elem.style.animationPlayState = 'paused'; // Start with animation paused
-    observer.observe(elem);
-  });
-});
+      const words = text.split(' ');
+      let line = '';
+      let lineNumber = 0;
+
+      words.forEach((word, index) => {
+        const testLine = line + (line ? ' ' : '') + word;
+        typewriter.innerHTML = `<span class="line">${testLine}</span>`;
+        if (typewriter.scrollWidth > typewriter.clientWidth) {
+          // Line has wrapped
+          const span = document.createElement('span');
+          span.className = 'line';
+          span.style.animationDelay = `${lineNumber * 2}s`;
+          span.innerText = line;
+          typewriter.appendChild(span);
+          line = word;
+          lineNumber++;
+        } else {
+          line = testLine;
+        }
+
+        // Add the last line
+        if (index === words.length - 1) {
+          const span = document.createElement('span');
+          span.className = 'line';
+          span.style.animationDelay = `${lineNumber * 2}s`;
+          span.innerText = line;
+          typewriter.appendChild(span);
+        }
+      });
+    });
 
 document.addEventListener("window.onload", function() {
   const images = document.querySelectorAll(".retro-img");
