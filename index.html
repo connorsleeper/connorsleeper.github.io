@@ -90,13 +90,7 @@
   overflow: hidden;
 }
 
-/* Ensure the image fills the wrapper */
-.image-wrapper img {
-  width: 100%;
-  display: block;
-}
-
-/* Overlay that will reveal the image */
+/* The overlay is added to the image wrapper and covers the image */
 .image-wrapper::before {
   content: "";
   position: absolute;
@@ -104,12 +98,15 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000;  /* Black overlay */
-  /* Animate the overlay's height in a stepped manner over 2 seconds */
+  background-color: #000; /* Black overlay */
+  /* No animation by default */
+}
+
+/* When the wrapper is fully in view, apply the reveal animation */
+.image-wrapper.in-view::before {
   animation: retroRevealOverlay 2s steps(30, end) forwards;
 }
 
-/* Keyframes for the overlay reveal effect */
 @keyframes retroRevealOverlay {
   from {
     height: 100%;
@@ -566,6 +563,19 @@ document.addEventListener("DOMContentLoaded", function() {
             img.style.animation = "none";
         });
     });
+});
+		document.addEventListener("DOMContentLoaded", function() {
+  const wrappers = document.querySelectorAll('.image-wrapper');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      // If the entire image wrapper is in view (100% visible)
+      if (entry.intersectionRatio === 1) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 1.0 });
+  
+  wrappers.forEach(wrapper => observer.observe(wrapper));
 });
   </script>
 </body>
