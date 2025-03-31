@@ -28,22 +28,29 @@
     .section {
       padding: 20px;
     }
+    /* Typewriter effect applied to all animated text elements */
     .typewriter {
-      display: inline-block;
+      white-space: nowrap;
       overflow: hidden;
-      white-space: normal;
-      border-right: 2px solid #000;
-      animation: typing 3s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
+      display: block;
+      border-right: 2px solid #00FF00;
+      width: 1;
+      opacity: 1;
+      transition: width 3s steps(20, end);
+      margin-bottom: 10px;
     }
-
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
+    /* Blinking cursor (optional, used for headers) */
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      height: 16px;
+      background-color: #00FF00;
+      animation: blink 1s infinite;
+      opacity: 0;
+      vertical-align: bottom;
     }
-
-    @keyframes blink-caret {
-      from, to { border-color: transparent; }
-      50% { border-color: black; }
+    @keyframes blink {
+      50% { opacity: 0; }
     }
     /* LinkedIn link styled to match the retro look */
     .linkedin-link {
