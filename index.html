@@ -28,28 +28,22 @@
     .section {
       padding: 20px;
     }
-    /* Typewriter effect applied to all animated text elements */
     .typewriter {
-      font-family: 'Web437 ACM VGA 9x16', monospace;
-      white-space: pre-wrap; /* Allows text to wrap */
-      overflow: hidden;
-      border-right: 2px solid #00FF00;
-      width: 100%;
-      max-width: 600px; /* Adjust based on your layout */
-      margin: 0 auto;
-      padding: 10px;
-      line-height: 1.5;
-    }
-    .line {
-      display: block;
+      display: inline-block;
       overflow: hidden;
       white-space: nowrap;
-      width: 0;
-      animation: typing 2s steps(40, end) forwards;
+      border-right: 2px solid #000;
+      animation: typing 3s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
     }
+
     @keyframes typing {
       from { width: 0; }
       to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: black; }
     }
     /* LinkedIn link styled to match the retro look */
     .linkedin-link {
