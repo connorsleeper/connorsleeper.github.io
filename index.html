@@ -83,15 +83,17 @@
 }
 
 .portfolio-item img {
-	width: 100%;
-    height: auto;
-    /* Start fully clipped so nothing shows */
+    width: 100%;
+    border-bottom: 2px solid #00FF00;
     clip-path: inset(100% 0 0 0);
-    /* The animation below will reveal the image line by line */
-    animation: retroReveal 2s steps(30, end) forwards;
-    /* Optionally, add a slight delay so images load sequentially */
-    /* animation-delay: 0.5s; */
+    /* Define the animation properties separately */
+    animation-name: retroReveal;
+    animation-duration: 2s;
+    animation-timing-function: steps(30, end);
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
 }
+
 .inner-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
