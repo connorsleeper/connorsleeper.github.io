@@ -30,28 +30,26 @@
     }
     /* Typewriter effect applied to all animated text elements */
     .animated-text {
-      white-space: nowrap;
-      overflow: hidden;
-      display: block;
-      border-right: 2px solid #00FF00;
-      width: 0;
-      opacity: 1;
-      transition: width 3s steps(20, end);
-      margin-bottom: 10px;
+      overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid #00FF00; /* The typewriter cursor */
+  white-space: normal; /* Allows the text to wrap */
+  margin: 0 auto; /* Centers the text */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  max-width: 100%; /* Ensures the text does not exceed the container's width */
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  word-break: break-word; /* Ensures long words break and wrap to the next line */
     }
-    /* Blinking cursor (optional, used for headers) */
-    .cursor {
-      display: inline-block;
-      width: 10px;
-      height: 16px;
-      background-color: #00FF00;
-      animation: blink 1s infinite;
-      opacity: 0;
-      vertical-align: bottom;
-    }
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
+    /* The typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #00FF00; }
+}
     /* LinkedIn link styled to match the retro look */
     .linkedin-link {
       color: #00FF00;
@@ -486,37 +484,23 @@ body::after {
 	
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const animatedElements = document.querySelectorAll(".animated-text");
-      
-      // For each animated element, measure its natural width and store it
-      animatedElements.forEach(elem => {
-          let fullWidth = elem.scrollWidth;
-          console.log("Measured full width:", fullWidth, "for element:", elem);
-          elem.dataset.fullWidth = fullWidth + "px";
-          elem.style.width = "0px";  // Ensure starting width is 0
-      });
-      
-      // Set up IntersectionObserver to trigger typewriter effect when elements are visible
-      const observer = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
-              const elem = entry.target;
-              // Check for an associated blinking cursor (immediate sibling with "cursor" class)
-              const cursor = (elem.nextElementSibling && elem.nextElementSibling.classList.contains("cursor"))
-                             ? elem.nextElementSibling
-                             : null;
-              console.log("Element:", elem, "isIntersecting:", entry.isIntersecting);
-              if (entry.isIntersecting) {
-                  elem.style.width = elem.dataset.fullWidth;
-                  if (cursor) { cursor.style.opacity = "1"; }
-              } //else {
-                 // elem.style.width = "0px";
-             //     if (cursor) { cursor.style.opacity = "0"; }
-           //   }
-          });
-      }, { threshold: 0.5 });
-      
-      animatedElements.forEach(elem => observer.observe(elem));
+  const elements = document.querySelectorAll(".typewriter p");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      } else {
+        entry.target.style.animationPlayState = 'paused';
+      }
     });
+  }, { threshold: 0.5 });
+
+  elements.forEach(elem => {
+    elem.style.animationPlayState = 'paused'; // Start with animation paused
+    observer.observe(elem);
+  });
+});
+
 document.addEventListener("window.onload", function() {
   const images = document.querySelectorAll(".retro-img");
   const observer = new IntersectionObserver(entries => {
