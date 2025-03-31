@@ -85,7 +85,7 @@
 .portfolio-item img {
     width: 100%;
     border-bottom: 2px solid #00FF00;
-    /* Initial clip-path */
+    /* Initial state: completely hidden */
     clip-path: inset(100% 0 0 0);
     -webkit-clip-path: inset(100% 0 0 0);
     animation-name: retroReveal;
@@ -531,6 +531,19 @@ document.addEventListener("DOMContentLoaded", function() {
       cursor.style.left = Math.round(currentX) + 'px';
       cursor.style.top = Math.round(currentY) + 'px';
     }, 33);
+		//makes the images animate correctly
+		document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll(".portfolio-item img");
+    images.forEach(img => {
+        img.addEventListener("animationend", () => {
+            // Force the final state in Chromium by explicitly setting clip-path
+            img.style.clipPath = "inset(0 0 0 0)";
+            img.style.webkitClipPath = "inset(0 0 0 0)";
+            // Optionally remove the animation property to stop any re-triggering
+            img.style.animation = "none";
+        });
+    });
+});
   </script>
 </body>
 </html>
