@@ -34,7 +34,7 @@
       overflow: hidden;
       display: block;
       border-right: 2px solid #00FF00;
-      width: 1;
+      width: 0;
       opacity: 1;
       transition: width 3s steps(20, end);
       margin-bottom: 10px;
@@ -508,16 +508,16 @@ body::after {
               if (entry.isIntersecting) {
                   elem.style.width = elem.dataset.fullWidth;
                   if (cursor) { cursor.style.opacity = "1"; }
-              } else {
-                  elem.style.width = "0px";
-                  if (cursor) { cursor.style.opacity = "0"; }
-              }
+              } //else {
+                 // elem.style.width = "0px";
+             //     if (cursor) { cursor.style.opacity = "0"; }
+           //   }
           });
       }, { threshold: 0.5 });
       
       animatedElements.forEach(elem => observer.observe(elem));
     });
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("window.onload", function() {
   const images = document.querySelectorAll(".retro-img");
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
